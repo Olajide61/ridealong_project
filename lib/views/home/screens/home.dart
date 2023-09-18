@@ -390,7 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 251,
                               child: Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 18, top: 55, right: 18),
+                                    top: 20, left: 18, right: 18),
                                 child: Column(
                                   children: [
                                     Row(
@@ -413,6 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             InkWell(
                                               onTap: () {
                                                 showModalBottomSheet(
+                                                  isScrollControlled: true,
                                                   shape:
                                                       const RoundedRectangleBorder(
                                                     borderRadius:
@@ -425,8 +426,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     return Container(
                                                       height: 500,
                                                       width: 375,
-                                                      decoration:
-                                                          BoxDecoration(
+                                                      decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(22),
@@ -447,13 +447,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               children: [
                                                                 Image.asset(
                                                                     'assets/images/point.png',
-                                                                    height:
-                                                                        20,
-                                                                    width:
-                                                                        20),
+                                                                    height: 20,
+                                                                    width: 20),
                                                                 const SizedBox(
-                                                                    width:
-                                                                        16),
+                                                                    width: 16),
                                                                 Column(
                                                                   crossAxisAlignment:
                                                                       CrossAxisAlignment
@@ -500,8 +497,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   child: Image
                                                                       .asset(
                                                                     'assets/images/cancel2.png',
-                                                                    height:
-                                                                        16,
+                                                                    height: 16,
                                                                     width: 16,
                                                                   ),
                                                                 )
@@ -514,13 +510,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               children: [
                                                                 Image.asset(
                                                                     'assets/images/location.png',
-                                                                    height:
-                                                                        20,
-                                                                    width:
-                                                                        20),
+                                                                    height: 20,
+                                                                    width: 20),
                                                                 const SizedBox(
-                                                                    width:
-                                                                        16),
+                                                                    width: 16),
                                                                 Column(
                                                                   crossAxisAlignment:
                                                                       CrossAxisAlignment
@@ -574,7 +567,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                       fontSize:
                                                                           16,
                                                                       fontWeight:
-                                                                          FontWeight.w600,
+                                                                          FontWeight
+                                                                              .w600,
                                                                       color: AppColors
                                                                           .dudu,
                                                                     ),
@@ -590,7 +584,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                       fontSize:
                                                                           16,
                                                                       fontWeight:
-                                                                          FontWeight.w400,
+                                                                          FontWeight
+                                                                              .w400,
                                                                       color: AppColors
                                                                           .dudu,
                                                                     ),
@@ -605,8 +600,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 Image.asset(
                                                                   'assets/images/bcar.png',
                                                                   height: 19,
-                                                                  width:
-                                                                      34.481,
+                                                                  width: 34.481,
                                                                 ),
                                                                 const SizedBox(
                                                                   width: 14,
@@ -694,8 +688,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 Image.asset(
                                                                   'assets/images/blcar.png',
                                                                   height: 19,
-                                                                  width:
-                                                                      34.481,
+                                                                  width: 34.481,
                                                                 ),
                                                                 const SizedBox(
                                                                   width: 14,
@@ -783,8 +776,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 Image.asset(
                                                                   'assets/images/blcar.png',
                                                                   height: 19,
-                                                                  width:
-                                                                      34.481,
+                                                                  width: 34.481,
                                                                 ),
                                                                 const SizedBox(
                                                                   width: 14,
@@ -878,7 +870,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                       fontSize:
                                                                           16,
                                                                       fontWeight:
-                                                                          FontWeight.w500,
+                                                                          FontWeight
+                                                                              .w500,
                                                                       color: AppColors
                                                                           .dudu,
                                                                     ),
@@ -898,8 +891,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     ImageIcon(
                                                                   const AssetImage(
                                                                       'assets/images/drop.png'),
-                                                                  color: AppColors
-                                                                      .black,
+                                                                  color:
+                                                                      AppColors
+                                                                          .black,
                                                                 ),
                                                               ),
                                                               hintText:
@@ -913,8 +907,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             ),
                                                             CustomisedButton(
                                                                 'Book Now',
-                                                                onPressed:
-                                                                    () {
+                                                                onPressed: () {
                                                               Navigator.push(
                                                                 context,
                                                                 MaterialPageRoute(
