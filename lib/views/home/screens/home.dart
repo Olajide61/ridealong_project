@@ -4,6 +4,7 @@ import 'package:ridealong_project/views/home/screens/history_view.dart';
 import 'package:ridealong_project/views/home/screens/invite_view.dart';
 import 'package:ridealong_project/views/home/screens/my_account.dart';
 import 'package:ridealong_project/views/home/screens/notification_view.dart';
+import 'package:ridealong_project/views/home/screens/payment_view.dart';
 import 'package:ridealong_project/views/home/screens/settings_view.dart';
 import 'package:ridealong_project/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
@@ -380,6 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     CustomisedButton('Request a Ride', onPressed: () {
                       showModalBottomSheet(
+                          isScrollControlled: true,
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(24))),
@@ -438,10 +440,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 left: 23,
                                                                 right: 25.5,
                                                                 top: 24),
-                                                        child: Column(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
+                                                        child: ListView(
+                                                          shrinkWrap: true,
+                                                          physics:
+                                                              const ClampingScrollPhysics(),
                                                           children: [
                                                             Row(
                                                               children: [
@@ -457,7 +459,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'ABenue State University',
+                                                                      'Benue State University',
                                                                       style: GoogleFonts
                                                                           .poppins(
                                                                         textStyle:
@@ -606,6 +608,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   width: 14,
                                                                 ),
                                                                 Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     Text(
                                                                       'Standard Car',
@@ -694,6 +699,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   width: 14,
                                                                 ),
                                                                 Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     Text(
                                                                       'Big Car',
@@ -782,6 +790,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   width: 14,
                                                                 ),
                                                                 Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     Text(
                                                                       'Big Car',
@@ -905,6 +916,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   TextInputAction
                                                                       .next,
                                                             ),
+                                                            const SizedBox(
+                                                                height: 21),
                                                             CustomisedButton(
                                                                 'Book Now',
                                                                 onPressed: () {
@@ -913,7 +926,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 MaterialPageRoute(
                                                                   builder:
                                                                       (context) {
-                                                                    return const HomeScreen();
+                                                                    return const PaymentView();
                                                                   },
                                                                 ),
                                                               );

@@ -29,8 +29,8 @@ class _MyAccountViewState extends State<MyAccountView> {
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
             textStyle: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
               color: AppColors.black,
             ),
           ),

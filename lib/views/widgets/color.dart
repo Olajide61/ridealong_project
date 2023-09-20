@@ -5,6 +5,7 @@ class AppColors {
   static Color blue = const Color(0xff13AACC);
   static Color black = const Color(0xff000000);
   static Color grey = const Color(0xff717171);
+  static Color red = const Color(0xffC00202);
   static Color darkgrey = const Color(0xff3F3D56AD).withOpacity(0.68);
   static Color darky = const Color(0xff58595D);
   static Color darkb = const Color(0xff3F3D56).withOpacity(0.68);
@@ -20,4 +21,7 @@ class AppColors {
   static Color skygrey = const Color(0xff979C9E);
   static Color tgrey = const Color(0xffF4F4F4);
   static Color ash = const Color(0xffC8C7CC);
+  static Color ash1 = const Color(0xffF8F8F8);
+  static Color ff = const Color(0xffF8F5FF);
+  static Color tgrey1 = const Color(0xff3C3C4399).withOpacity(0.60);
 }
