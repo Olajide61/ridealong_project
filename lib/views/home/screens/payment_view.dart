@@ -4,7 +4,6 @@ import 'package:ridealong_project/views/home/screens/farebreak_view.dart';
 import 'package:ridealong_project/views/widgets/color.dart';
 import 'package:ridealong_project/views/widgets/customised_button.dart';
 
-
 class PaymentView extends StatefulWidget {
   const PaymentView({super.key});
 
@@ -53,7 +52,8 @@ class _PaymentViewState extends State<PaymentView> {
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
-                  BoxShadow(color: AppColors.ash1, blurRadius: 5),
+                  BoxShadow(
+                      color: AppColors.ff1, spreadRadius: 5, blurRadius: 4),
                 ],
               ),
               child: Padding(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color white = const Color(0xffffffff);
-  static Color blue = const Color(0xff13AACC);
-  static Color black = const Color(0xff000000);
+  static Color blue = Color(0xFF13AACC);
+  static Color black = const Color(0xff242E42);
   static Color grey = const Color(0xff717171);
   static Color red = const Color(0xffC00202);
   static Color darkgrey = const Color(0xff3F3D56AD).withOpacity(0.68);
@@ -23,5 +23,9 @@ class AppColors {
   static Color ash = const Color(0xffC8C7CC);
   static Color ash1 = const Color(0xffF8F8F8);
   static Color ff = const Color(0xffF8F5FF);
+  static Color ff1 = const Color(0xffEFEFF4);
+  static Color lightgreen = const Color(0xff07FF3D);
+  static Color ash2 = const Color(0xff8A8A8F);
+  static Color ash3 = const Color(0xffD9D9D9);
   static Color tgrey1 = const Color(0xff3C3C4399).withOpacity(0.60);
 }

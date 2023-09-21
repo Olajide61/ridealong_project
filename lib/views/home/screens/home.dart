@@ -22,6 +22,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
+  final List<String> images = [
+    'assets/images/head.png',
+    'assets/images/head.png',
+    'assets/images/head.png',
+  ];
 
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -576,7 +581,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     ),
                                                                   ),
                                                                 ),
-                                                                Spacer(),
+                                                                const Spacer(),
                                                                 Text(
                                                                   'see all',
                                                                   style: GoogleFonts
@@ -1059,11 +1064,681 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 16,
                     ),
-                    CustomisedButton('Get Started',
-                        borderColor: AppColors.blue,
-                        onPressed: () {},
-                        buttonColor: AppColors.white,
-                        textColor: AppColors.blue),
+                    CustomisedButton('Schedule for later',
+                        borderColor: AppColors.blue, onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(24),
+                          ),
+                        ),
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: 812,
+                            width: 375,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 18, top: 15.8, right: 18),
+                              child: ListView(
+                                children: [
+                                  Text(
+                                    'Your driver is coming in 2:10',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.black,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  Row(
+                                    children: [
+                                      const CircleAvatar(
+                                        backgroundImage: AssetImage(
+                                            'assets/images/head.png'),
+                                      ),
+                                      const SizedBox(width: 16),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Mike Pius',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(height: 4),
+                                          Row(
+                                            children: [
+                                              const Image(
+                                                height: 11,
+                                                width: 7.761,
+                                                image: AssetImage(
+                                                    'assets/images/l.png'),
+                                              ),
+                                              const SizedBox(width: 8),
+                                              Text(
+                                                '3 min',
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: AppColors.ash2,
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 24),
+                                              const Image(
+                                                height: 12,
+                                                width: 12,
+                                                image: AssetImage(
+                                                  'assets/images/star.png',
+                                                ),
+                                              ),
+                                              const SizedBox(width: 7),
+                                              Text(
+                                                '4.9',
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: AppColors.ash2,
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      const Spacer(),
+                                      Image.asset(
+                                        'assets/images/g1.png',
+                                        width: 14,
+                                        height: 14,
+                                        color: AppColors.ash,
+                                      )
+                                    ],
+                                  ),
+                                  const Divider(),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Passengers',
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.black,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 16),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            for (int i = 0;
+                                                i < images.length;
+                                                i++)
+                                              Align(
+                                                widthFactor: 0.5,
+                                                child: CircleAvatar(
+                                                  radius: 24,
+                                                  backgroundImage:
+                                                      AssetImage(images[i]),
+                                                ),
+                                              ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(24),
+                                              child: Text(
+                                                'You and two other people',
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: AppColors.ash2,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image.asset('assets/images/info.png',
+                                          height: 24, width: 24),
+                                      const SizedBox(width: 9),
+                                      Text(
+                                        'You’re shearing your ride with people going your\n way.Other passengers may be added.',
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.ash2,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Divider(),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            'TRIP',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          InkWell(
+                                            onTap: () {
+                                              showModalBottomSheet(
+                                                context: context,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.vertical(
+                                                    top: Radius.circular(24),
+                                                  ),
+                                                ),
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return Container(
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  right: 19,
+                                                                  top: 21,
+                                                                  left: 278),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    CircleAvatar(
+                                                                  backgroundColor:
+                                                                      AppColors
+                                                                          .ash3,
+                                                                  child: Icon(
+                                                                    Icons.close,
+                                                                    size: 16,
+                                                                    color: AppColors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          'YOU ARRIVED',
+                                                          style: GoogleFonts
+                                                              .poppins(
+                                                            textStyle:
+                                                                TextStyle(
+                                                              fontSize: 16,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              color: AppColors
+                                                                  .black,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        const Divider(),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceAround,
+                                                          children: [
+                                                            const CircleAvatar(
+                                                              backgroundImage:
+                                                                  AssetImage(
+                                                                      'assets/images/head.png'),
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Text(
+                                                                  'Mike Pius',
+                                                                  style: GoogleFonts
+                                                                      .poppins(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w800,
+                                                                      color: AppColors
+                                                                          .black,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Row(
+                                                                  children: [
+                                                                    Image.asset(
+                                                                      'assets/images/star.png',
+                                                                      height:
+                                                                          14,
+                                                                      width: 14,
+                                                                    ),
+                                                                    const SizedBox(
+                                                                        width:
+                                                                            5),
+                                                                    Text(
+                                                                      '4.9',
+                                                                      style: GoogleFonts
+                                                                          .poppins(
+                                                                        textStyle:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              15,
+                                                                          fontWeight:
+                                                                              FontWeight.w400,
+                                                                          color:
+                                                                              AppColors.ash2,
+                                                                        ),
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Text(
+                                                                  'Final cos',
+                                                                  style: GoogleFonts
+                                                                      .poppins(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          12,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400,
+                                                                      color: AppColors
+                                                                          .grey,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      '4,000',
+                                                                      style: GoogleFonts
+                                                                          .poppins(
+                                                                        textStyle:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              16,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          color:
+                                                                              AppColors.black,
+                                                                        ),
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Text(
+                                                                  'Time',
+                                                                  style: GoogleFonts
+                                                                      .poppins(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          12,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400,
+                                                                      color: AppColors
+                                                                          .grey,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      '30:00',
+                                                                      style: GoogleFonts
+                                                                          .poppins(
+                                                                        textStyle:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              16,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          color:
+                                                                              AppColors.black,
+                                                                        ),
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 17.38),
+                                                        const Divider(),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 26,
+                                                                  top: 24,
+                                                                  right: 26),
+                                                          child: Row(
+                                                            children: [
+                                                              Image.asset(
+                                                                'assets/images/Ovalred.png',
+                                                                height: 24.083,
+                                                                width: 18.519,
+                                                              ),
+                                                              const SizedBox(
+                                                                  width: 12),
+                                                              Text(
+                                                                'Lafia Federal Poly.......',
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .poppins(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        17,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    color: AppColors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              const Spacer(),
+                                                              Text(
+                                                                '9:40 PM',
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .poppins(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        17,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    color: AppColors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 35),
+                                                          child: Row(
+                                                            children: [
+                                                              Image.asset(
+                                                                  'assets/images/line.png',
+                                                                  width: 1,
+                                                                  height:
+                                                                      37.013)
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 25,
+                                                                  right: 26),
+                                                          child: Row(
+                                                            children: [
+                                                              Image.asset(
+                                                                'assets/images/point.png',
+                                                                height: 21,
+                                                                width: 21,
+                                                              ),
+                                                              const SizedBox(
+                                                                  width: 12),
+                                                              Text(
+                                                                'Lafia Federal Poly.......',
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .poppins(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        17,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    color: AppColors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              const Spacer(),
+                                                              Text(
+                                                                '9:40 PM',
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .poppins(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        17,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    color: AppColors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                            child: Text(
+                                              'EDIT RIDE',
+                                              style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: AppColors.blue,
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(height: 21),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/oval.png',
+                                            height: 24.083,
+                                            width: 18.519,
+                                          ),
+                                          const SizedBox(width: 12),
+                                          Text(
+                                            'Lafia Federal Poly.......',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          Text(
+                                            '9:40 PM',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(height: 29),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/point.png',
+                                            height: 24.083,
+                                            width: 18.519,
+                                          ),
+                                          const SizedBox(width: 12),
+                                          Text(
+                                            'Picking Favor',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          Text(
+                                            '9:45 PM',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.ash2,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(height: 29),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/point.png',
+                                            height: 24.083,
+                                            width: 18.519,
+                                          ),
+                                          const SizedBox(width: 12),
+                                          Text(
+                                            'DroppingFavor',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          Text(
+                                            '10:00 PM',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.ash2,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(height: 29),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/point.png',
+                                            height: 24.083,
+                                            width: 18.519,
+                                          ),
+                                          const SizedBox(width: 12),
+                                          Text(
+                                            'Customary Court Ma.....',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          Text(
+                                            '10:10 PM',
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.black,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    }, buttonColor: AppColors.white, textColor: AppColors.blue),
                   ],
                 ),
               ),
