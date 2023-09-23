@@ -27,5 +27,8 @@ class AppColors {
   static Color lightgreen = const Color(0xff07FF3D);
   static Color ash2 = const Color(0xff8A8A8F);
   static Color ash3 = const Color(0xffD9D9D9);
+  static Color wc = const Color(0xffF2F3F3);
+  static Color liggreen = const Color(0xffEEFCFF);
+  static Color grey1 = const Color(0xffF9F9F9);
   static Color tgrey1 = const Color(0xff3C3C4399).withOpacity(0.60);
 }

@@ -71,7 +71,7 @@ class CustomisedField extends StatelessWidget {
         width: 1,
         color: borderColor ?? AppColors.grey,
       ),
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(12),
     );
 
     return Column(
@@ -115,10 +115,12 @@ class CustomisedField extends StatelessWidget {
             suffix: suffix,
             suffixIcon: suffixIcon,
             prefixIcon: prefix,
+            filled: true,
+            fillColor: Color(0xffF7F7F9),
             hintText: hintText,
             hintStyle: TextStyle(
               fontFamily: 'Poppins',
-              color: hintColor ?? AppColors.grey,
+              color: hintColor ?? AppColors.ash,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),

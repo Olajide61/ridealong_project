@@ -2,9 +2,11 @@ import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ridealong_project/views/home/screens/history_view.dart';
 import 'package:ridealong_project/views/home/screens/invite_view.dart';
-import 'package:ridealong_project/views/home/screens/my_account.dart';
+import 'package:ridealong_project/views/home/screens/my_wallet.dart';
 import 'package:ridealong_project/views/home/screens/notification_view.dart';
 import 'package:ridealong_project/views/home/screens/payment_view.dart';
+import 'package:ridealong_project/views/home/screens/provider/globals.dart';
+import 'package:ridealong_project/views/home/screens/rating_view.dart';
 import 'package:ridealong_project/views/home/screens/settings_view.dart';
 import 'package:ridealong_project/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       zoom: 19.151926040649414);
   @override
   Widget build(BuildContext context) {
+    bool userIsDriver = GlobalVariables.isDriver;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -176,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const MyAccountView();
+                        return const MyWalletView();
                       }));
                     },
                     title: Row(
@@ -190,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 16,
                         ),
                         Text(
-                          'My Account',
+                          'My Wallet',
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 16,
@@ -343,6 +346,29 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: CustomisedButton('Driver Mode', onPressed: () {
+                            GlobalVariables.isDriver =
+                                !GlobalVariables.isDriver;
+                          },
+                              buttonColor: AppColors.blue,
+                              textColor: AppColors.white),
+                        ),
+                        const SizedBox(width: 5),
+                        Expanded(
+                          child: CustomisedButton('User Mode',
+                              onPressed: () {},
+                              buttonColor: AppColors.blue,
+                              textColor: AppColors.white),
+                        ),
                       ],
                     ),
                   ),
@@ -1546,7 +1572,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               const SizedBox(
                                                                   width: 12),
                                                               Text(
-                                                                'Lafia Federal Poly.......',
+                                                                'Coustomary court',
                                                                 style:
                                                                     GoogleFonts
                                                                         .poppins(
@@ -1564,7 +1590,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               ),
                                                               const Spacer(),
                                                               Text(
-                                                                '9:40 PM',
+                                                                '9:45 PM',
                                                                 style:
                                                                     GoogleFonts
                                                                         .poppins(
@@ -1582,7 +1608,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               ),
                                                             ],
                                                           ),
-                                                        )
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 24,
+                                                                  top: 48,
+                                                                  right: 25,
+                                                                  bottom: 48),
+                                                          child: CustomisedButton(
+                                                              'Rate Trip',
+                                                              onPressed: () {
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder:
+                                                                    (context) {
+                                                                  return const RatingView();
+                                                                },
+                                                              ),
+                                                            );
+                                                          },
+                                                              buttonColor:
+                                                                  AppColors
+                                                                      .blue,
+                                                              textColor:
+                                                                  AppColors
+                                                                      .white),
+                                                        ),
                                                       ],
                                                     ),
                                                   );
