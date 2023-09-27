@@ -615,8 +615,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 )
                                                               ],
                                                             ),
-                                                            const SizedBox(
-                                                              height: 16,
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Image.asset(
+                                                                      'assets/images/line.png',
+                                                                      width: 1,
+                                                                      height:
+                                                                          24)
+                                                                ],
+                                                              ),
                                                             ),
                                                             Row(
                                                               children: [

@@ -304,6 +304,9 @@ class _FareBreakViewState extends State<FareBreakView> {
                           ),
                         ),
                       ),
+                      const SizedBox(width: 160),
+                      Image.asset('assets/images/ic.png',
+                          height: 22, width: 22),
                       const Spacer(),
                       Text(
                         '₦4,000',
@@ -455,7 +458,9 @@ class _FareBreakViewState extends State<FareBreakView> {
                           Row(
                             children: [
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
                                 child: Text(
                                   'Cancel',
                                   style: GoogleFonts.poppins(
