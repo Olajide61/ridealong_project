@@ -124,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Text(
                     'By clicking on sign up, you agree to \nour terms of service',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,

@@ -1,11 +1,13 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ridealong_project/views/home/screens/history_view.dart';
 import 'package:ridealong_project/views/home/screens/invite_view.dart';
+import 'package:ridealong_project/views/home/screens/driverprofile/my_account.dart';
+import 'package:ridealong_project/views/home/screens/my_document.dart';
 import 'package:ridealong_project/views/home/screens/my_wallet.dart';
 import 'package:ridealong_project/views/home/screens/notification_view.dart';
 import 'package:ridealong_project/views/home/screens/payment_view.dart';
-import 'package:ridealong_project/views/home/screens/provider/globals.dart';
 import 'package:ridealong_project/views/home/screens/rating_view.dart';
 import 'package:ridealong_project/views/home/screens/settings_view.dart';
 import 'package:ridealong_project/views/widgets/customised_button.dart';
@@ -42,11 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
       zoom: 19.151926040649414);
   @override
   Widget build(BuildContext context) {
-    bool userIsDriver = GlobalVariables.isDriver;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 1,
+        elevation: 0,
         leading: Builder(
           builder: ((context) {
             return IconButton(
@@ -147,10 +149,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   ListTile(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const HomeScreen();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const HomeScreen();
+                          },
+                        ),
+                      );
                     },
                     title: Row(
                       children: [
@@ -177,10 +183,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const MyWalletView();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const MyWalletView();
+                          },
+                        ),
+                      );
                     },
                     title: Row(
                       children: [
@@ -192,25 +202,62 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           width: 16,
                         ),
-                        Text(
-                          'My Wallet',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
-                            ),
-                          ),
-                        )
+                        _isDriver
+                            ? Text(
+                                'My Wallet',
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.dudu,
+                                  ),
+                                ),
+                              )
+                            : InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return const MyAccountView();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'My Account',
+                                  style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.dudu,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                        const SizedBox(width: 5),
+                        CupertinoSwitch(
+                          activeColor: AppColors.blue,
+                          value: _isDriver,
+                          onChanged: (value) {
+                            setState(() {
+                              _isDriver = value;
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
                   ListTile(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const HistoryView();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const HistoryView();
+                          },
+                        ),
+                      );
                     },
                     title: Row(
                       children: [
@@ -237,10 +284,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const NotificationView();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const NotificationView();
+                          },
+                        ),
+                      );
                     },
                     title: Row(
                       children: [
@@ -297,10 +348,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const SettingsView();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const SettingsView();
+                          },
+                        ),
+                      );
                     },
                     title: Row(
                       children: [
@@ -349,29 +404,53 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 16),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:
+                        const EdgeInsets.only(top: 150, left: 18, right: 18),
                     child: Row(
                       children: [
                         Expanded(
-                          child: CustomisedButton('Driver Mode', onPressed: () {
-                            GlobalVariables.isDriver =
-                                !GlobalVariables.isDriver;
-                          },
-                              buttonColor: AppColors.blue,
-                              textColor: AppColors.white),
-                        ),
-                        const SizedBox(width: 5),
-                        Expanded(
-                          child: CustomisedButton('User Mode',
-                              onPressed: () {},
-                              buttonColor: AppColors.blue,
-                              textColor: AppColors.white),
-                        ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const MyDocument();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: AppColors.blue,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              height: 55,
+                              child: Padding(
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Become a driver',
+                                      style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -1808,3 +1887,5 @@ class _HomeScreenState extends State<HomeScreen> {
     await controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
   }
 }
+
+bool _isDriver = false;

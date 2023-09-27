@@ -220,7 +220,7 @@ class _CreateViewState extends State<CreateView> {
                 children: [
                   Text(
                     'Already Have an Account?',
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
@@ -240,7 +240,7 @@ class _CreateViewState extends State<CreateView> {
                     },
                     child: Text(
                       'Log In',
-                      style: GoogleFonts.roboto(
+                      style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,

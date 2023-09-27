@@ -127,7 +127,7 @@ class _LoginViewState extends State<LoginView> {
                   Text(
                     'Don’t have an account?',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
@@ -147,7 +147,7 @@ class _LoginViewState extends State<LoginView> {
                     },
                     child: Text(
                       'Sign up',
-                      style: GoogleFonts.roboto(
+                      style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,

@@ -46,7 +46,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
               ),
               Text(
                 'No matter your destination,we’ll get you \nwhere you need to go',
-                style: GoogleFonts.roboto(
+                style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
@@ -69,7 +69,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                 children: [
                   Text(
                     'Already Have an Account?',
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
@@ -89,7 +89,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                     },
                     child: Text(
                       'Log In',
-                      style: GoogleFonts.roboto(
+                      style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
