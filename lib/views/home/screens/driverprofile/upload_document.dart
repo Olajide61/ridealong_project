@@ -1,23 +1,22 @@
 import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ridealong_project/views/home/screens/driverprofile/upload_document.dart';
+import 'package:ridealong_project/views/home/screens/driverprofile/car_details.dart';
 import 'package:ridealong_project/views/widgets/color.dart';
 import 'package:ridealong_project/views/widgets/customised_button.dart';
 
-class MyDocument extends StatefulWidget {
-  const MyDocument({super.key});
+class UploadDocumentView extends StatefulWidget {
+  const UploadDocumentView({super.key});
 
   @override
-  State<MyDocument> createState() => _MyDocumentState();
+  State<UploadDocumentView> createState() => _UploadDocumentViewState();
 }
 
-class _MyDocumentState extends State<MyDocument> {
+class _UploadDocumentViewState extends State<UploadDocumentView> {
   File? image;
   String? imageUrl;
-  bool _imageUploaded = false;
-  bool isButtonVisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,9 +93,7 @@ class _MyDocumentState extends State<MyDocument> {
                           const Spacer(),
                           InkWell(
                               onTap: () {
-                                setState(() {
-                                  isButtonVisible = false;
-                                });
+                                setState(() {});
                                 showDialog(
                                   context: context,
                                   builder: (context) {
@@ -249,9 +246,7 @@ class _MyDocumentState extends State<MyDocument> {
                           const Spacer(),
                           InkWell(
                               onTap: () {
-                                setState(() {
-                                  isButtonVisible = false;
-                                });
+                                setState(() {});
                                 showDialog(
                                   context: context,
                                   builder: (context) {
@@ -347,30 +342,12 @@ class _MyDocumentState extends State<MyDocument> {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Text(
-                  '*These field are required',
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.grey,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 263),
-            Visibility(
-              visible: isButtonVisible,
-              child: CustomisedButton('Next', onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const UploadDocumentView();
-                }));
-              }, buttonColor: AppColors.blue, textColor: AppColors.white),
-            ),
+            const SizedBox(height: 300),
+            CustomisedButton('Submit', onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const CarDeatilsView();
+              }));
+            }, buttonColor: AppColors.blue, textColor: AppColors.white),
           ],
         ),
       ),

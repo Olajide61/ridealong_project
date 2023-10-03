@@ -14,7 +14,7 @@ class AppColors {
   static Color lightblack = const Color(0xff434343);
   static Color blackb = const Color(0xff5B5858);
   static Color blackbb = const Color(0xff2F2D40);
-  static Color green = const Color(0xff12B76A);
+  static Color green = const Color(0xff43A047);
   static Color ligrey = const Color(0xff667085);
   static Color darkblue = const Color(0xff1069E3);
   static Color dudu = const Color(0xff2F2D40);

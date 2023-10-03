@@ -143,68 +143,85 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 44),
-              child: Column(
-                children: [
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const HomeScreen();
-                          },
-                        ),
-                      );
-                    },
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/home.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Text(
-                          'Home',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
-                            ),
+            Column(
+              children: [
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HomeScreen();
+                        },
+                      ),
+                    );
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/home.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        'Home',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.dudu,
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const MyWalletView();
-                          },
-                        ),
-                      );
-                    },
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/account.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        _isDriver
-                            ? Text(
-                                'My Wallet',
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const MyWalletView();
+                        },
+                      ),
+                    );
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/account.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      _isDriver
+                          ? Text(
+                              'My Wallet',
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.dudu,
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return const MyAccountView();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'My Account',
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     fontSize: 16,
@@ -212,247 +229,219 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: AppColors.dudu,
                                   ),
                                 ),
-                              )
-                            : InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return const MyAccountView();
-                                      },
-                                    ),
-                                  );
+                              ),
+                            ),
+                      const SizedBox(width: 5),
+                      CupertinoSwitch(
+                        activeColor: AppColors.blue,
+                        value: _isDriver,
+                        onChanged: (value) {
+                          setState(() {
+                            _isDriver = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HistoryView();
+                        },
+                      ),
+                    );
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/his.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        'History',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.dudu,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const NotificationView();
+                        },
+                      ),
+                    );
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/not.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        'Notifications',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.dudu,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const InviteView();
+                    }));
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/invite.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        'Invite Friends',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.dudu,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const SettingsView();
+                        },
+                      ),
+                    );
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/settings.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        'Settings',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.dudu,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                ListTile(
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/log.png',
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        'Logout',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.dudu,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 150, left: 18, right: 18),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const MyDocument();
                                 },
-                                child: Text(
-                                  'My Account',
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.dudu,
-                                    ),
-                                  ),
-                                ),
                               ),
-                        const SizedBox(width: 5),
-                        CupertinoSwitch(
-                          activeColor: AppColors.blue,
-                          value: _isDriver,
-                          onChanged: (value) {
-                            setState(() {
-                              _isDriver = value;
-                            });
+                            );
                           },
-                        ),
-                      ],
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const HistoryView();
-                          },
-                        ),
-                      );
-                    },
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/his.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Text(
-                          'History',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.blue,
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const NotificationView();
-                          },
-                        ),
-                      );
-                    },
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/not.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Text(
-                          'Notifications',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const InviteView();
-                      }));
-                    },
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/invite.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Text(
-                          'Invite Friends',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const SettingsView();
-                          },
-                        ),
-                      );
-                    },
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/settings.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Text(
-                          'Settings',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  ListTile(
-                    title: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/log.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Text(
-                          'Logout',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.dudu,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 150, left: 18, right: 18),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const MyDocument();
-                                  },
-                                ),
-                              );
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: AppColors.blue,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              height: 55,
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Become a driver',
-                                      style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                          color: AppColors.black,
-                                        ),
+                            height: 55,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Become a driver',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.black,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
           ],
         ),
@@ -535,171 +524,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   ),
                                                   context: context,
                                                   builder: (context) {
-                                                    return Container(
-                                                      height: 500,
-                                                      width: 375,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(22),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                left: 23,
-                                                                right: 25.5,
-                                                                top: 24),
-                                                        child: ListView(
-                                                          shrinkWrap: true,
-                                                          physics:
-                                                              const ClampingScrollPhysics(),
+                                                    return ListView(
+                                                      shrinkWrap: true,
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              24),
+                                                      physics:
+                                                          const ClampingScrollPhysics(),
+                                                      children: [
+                                                        Row(
                                                           children: [
-                                                            Row(
-                                                              children: [
-                                                                Image.asset(
-                                                                    'assets/images/point.png',
-                                                                    height: 20,
-                                                                    width: 20),
-                                                                const SizedBox(
-                                                                    width: 16),
-                                                                Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Benue State University',
-                                                                      style: GoogleFonts
-                                                                          .poppins(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w400,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      'Makurdi, Gboko Road, Makurdi, Nigeria',
-                                                                      style: GoogleFonts
-                                                                          .poppins(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.w400,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                                const Spacer(),
-                                                                InkWell(
-                                                                  onTap: () {
-                                                                    Navigator.pop(
-                                                                        context);
-                                                                  },
-                                                                  child: Image
-                                                                      .asset(
-                                                                    'assets/images/cancel2.png',
-                                                                    height: 16,
-                                                                    width: 16,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(8.0),
-                                                              child: Row(
-                                                                children: [
-                                                                  Image.asset(
-                                                                      'assets/images/line.png',
-                                                                      width: 1,
-                                                                      height:
-                                                                          24)
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            Row(
-                                                              children: [
-                                                                Image.asset(
-                                                                    'assets/images/location.png',
-                                                                    height: 20,
-                                                                    width: 20),
-                                                                const SizedBox(
-                                                                    width: 16),
-                                                                Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Federal Polytechnic Lafia',
-                                                                      style: GoogleFonts
-                                                                          .poppins(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w400,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      'Lafia, Nasarawa State, Nigeria ',
-                                                                      style: GoogleFonts
-                                                                          .poppins(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.w400,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
+                                                            Image.asset(
+                                                                'assets/images/point.png',
+                                                                height: 20,
+                                                                width: 20),
                                                             const SizedBox(
-                                                              height: 24,
-                                                            ),
-                                                            Row(
+                                                                width: 16),
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
                                                               children: [
                                                                 Text(
-                                                                  'Select Ride',
-                                                                  style: GoogleFonts
-                                                                      .poppins(
-                                                                    textStyle:
-                                                                        TextStyle(
-                                                                      fontSize:
-                                                                          16,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      color: AppColors
-                                                                          .dudu,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                const Spacer(),
-                                                                Text(
-                                                                  'see all',
+                                                                  'Benue State University',
                                                                   style: GoogleFonts
                                                                       .poppins(
                                                                     textStyle:
@@ -714,287 +561,67 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ],
-                                                            ),
-                                                            const SizedBox(
-                                                                height: 24),
-                                                            Row(
-                                                              children: [
-                                                                Image.asset(
-                                                                  'assets/images/bcar.png',
-                                                                  height: 19,
-                                                                  width: 34.481,
-                                                                ),
-                                                                const SizedBox(
-                                                                  width: 14,
-                                                                ),
-                                                                Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Standard Car',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
+                                                                Text(
+                                                                  'Makurdi, Gboko Road, Makurdi, Nigeria',
+                                                                  style: GoogleFonts
+                                                                      .poppins(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400,
+                                                                      color: AppColors
+                                                                          .ash,
                                                                     ),
-                                                                    Text(
-                                                                      '2-4 People',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                const Spacer(),
-                                                                Column(
-                                                                  children: [
-                                                                    Text(
-                                                                      '₦4,000',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      '₦5,000',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          decoration:
-                                                                              TextDecoration.lineThrough,
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            const SizedBox(
-                                                                height: 8),
-                                                            const Divider(),
-                                                            const SizedBox(
-                                                                height: 8),
-                                                            Row(
-                                                              children: [
-                                                                Image.asset(
-                                                                  'assets/images/blcar.png',
-                                                                  height: 19,
-                                                                  width: 34.481,
-                                                                ),
-                                                                const SizedBox(
-                                                                  width: 14,
-                                                                ),
-                                                                Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Big Car',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      '4-6 People',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                const Spacer(),
-                                                                Column(
-                                                                  children: [
-                                                                    Text(
-                                                                      '₦5,000',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      '₦7,000',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          decoration:
-                                                                              TextDecoration.lineThrough,
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    )
-                                                                  ],
+                                                                  ),
                                                                 )
                                                               ],
                                                             ),
+                                                            const Spacer(),
+                                                            InkWell(
+                                                              onTap: () {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              child:
+                                                                  Image.asset(
+                                                                'assets/images/cancel2.png',
+                                                                height: 16,
+                                                                width: 16,
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8.0),
+                                                          child: Row(
+                                                            children: [
+                                                              Image.asset(
+                                                                  'assets/images/line.png',
+                                                                  width: 1,
+                                                                  height: 24)
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            Image.asset(
+                                                                'assets/images/location.png',
+                                                                height: 20,
+                                                                width: 20),
                                                             const SizedBox(
-                                                                height: 8),
-                                                            const Divider(),
-                                                            const SizedBox(
-                                                                height: 8),
-                                                            Row(
-                                                              children: [
-                                                                Image.asset(
-                                                                  'assets/images/blcar.png',
-                                                                  height: 19,
-                                                                  width: 34.481,
-                                                                ),
-                                                                const SizedBox(
-                                                                  width: 14,
-                                                                ),
-                                                                Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Big Car',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      '4-6 People',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                const Spacer(),
-                                                                Column(
-                                                                  children: [
-                                                                    Text(
-                                                                      '₦5,000',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.dudu,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      '₦7,000',
-                                                                      style: GoogleFonts
-                                                                          .openSans(
-                                                                        textStyle:
-                                                                            TextStyle(
-                                                                          decoration:
-                                                                              TextDecoration.lineThrough,
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          color:
-                                                                              AppColors.ash,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            const SizedBox(
-                                                                height: 8),
-                                                            const Divider(),
-                                                            const SizedBox(
-                                                                height: 8),
-                                                            Row(
+                                                                width: 16),
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
                                                               children: [
                                                                 Text(
-                                                                  'Enter number of seats',
+                                                                  'Federal Polytechnic Lafia',
                                                                   style: GoogleFonts
                                                                       .poppins(
                                                                     textStyle:
@@ -1003,64 +630,423 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                           16,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .w500,
+                                                                              .w400,
                                                                       color: AppColors
                                                                           .dudu,
                                                                     ),
                                                                   ),
                                                                 ),
+                                                                Text(
+                                                                  'Lafia, Nasarawa State, Nigeria ',
+                                                                  style: GoogleFonts
+                                                                      .poppins(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                )
                                                               ],
                                                             ),
-                                                            CustomisedField(
-                                                              enabled: false,
-                                                              suffixIcon:
-                                                                  Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .all(
-                                                                        15),
-                                                                child:
-                                                                    ImageIcon(
-                                                                  const AssetImage(
-                                                                      'assets/images/drop.png'),
-                                                                  color:
-                                                                      AppColors
-                                                                          .black,
-                                                                ),
-                                                              ),
-                                                              hintText:
-                                                                  'Location',
-                                                              textInputType:
-                                                                  TextInputType
-                                                                      .text,
-                                                              textInputAction:
-                                                                  TextInputAction
-                                                                      .next,
-                                                            ),
-                                                            const SizedBox(
-                                                                height: 21),
-                                                            CustomisedButton(
-                                                                'Book Now',
-                                                                onPressed: () {
-                                                              Navigator.push(
-                                                                context,
-                                                                MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) {
-                                                                    return const PaymentView();
-                                                                  },
-                                                                ),
-                                                              );
-                                                            },
-                                                                buttonColor:
-                                                                    AppColors
-                                                                        .blue,
-                                                                textColor:
-                                                                    AppColors
-                                                                        .white),
                                                           ],
                                                         ),
-                                                      ),
+                                                        const SizedBox(
+                                                          height: 24,
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            Text(
+                                                              'Select Ride',
+                                                              style: GoogleFonts
+                                                                  .poppins(
+                                                                textStyle:
+                                                                    TextStyle(
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  color:
+                                                                      AppColors
+                                                                          .dudu,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            const Spacer(),
+                                                            Text(
+                                                              'see all',
+                                                              style: GoogleFonts
+                                                                  .poppins(
+                                                                textStyle:
+                                                                    TextStyle(
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400,
+                                                                  color:
+                                                                      AppColors
+                                                                          .dudu,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 24),
+                                                        Row(
+                                                          children: [
+                                                            Image.asset(
+                                                              'assets/images/bcar.png',
+                                                              height: 19,
+                                                              width: 34.481,
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 14,
+                                                            ),
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'Standard Car',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .dudu,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  '2-4 People',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            const Spacer(),
+                                                            Column(
+                                                              children: [
+                                                                Text(
+                                                                  '₦4,000',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .dudu,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  '₦5,000',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      decoration:
+                                                                          TextDecoration
+                                                                              .lineThrough,
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        const Divider(),
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        Row(
+                                                          children: [
+                                                            Image.asset(
+                                                              'assets/images/blcar.png',
+                                                              height: 19,
+                                                              width: 34.481,
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 14,
+                                                            ),
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'Big Car',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .dudu,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  '4-6 People',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            const Spacer(),
+                                                            Column(
+                                                              children: [
+                                                                Text(
+                                                                  '₦5,000',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .dudu,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  '₦7,000',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      decoration:
+                                                                          TextDecoration
+                                                                              .lineThrough,
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            )
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        const Divider(),
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        Row(
+                                                          children: [
+                                                            Image.asset(
+                                                              'assets/images/blcar.png',
+                                                              height: 19,
+                                                              width: 34.481,
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 14,
+                                                            ),
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'Big Car',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .dudu,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  '4-6 People',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            const Spacer(),
+                                                            Column(
+                                                              children: [
+                                                                Text(
+                                                                  '₦5,000',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .dudu,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  '₦7,000',
+                                                                  style: GoogleFonts
+                                                                      .openSans(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      decoration:
+                                                                          TextDecoration
+                                                                              .lineThrough,
+                                                                      fontSize:
+                                                                          16,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColors
+                                                                          .ash,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        const Divider(),
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        Row(
+                                                          children: [
+                                                            Text(
+                                                              'Enter number of seats',
+                                                              style: GoogleFonts
+                                                                  .poppins(
+                                                                textStyle:
+                                                                    TextStyle(
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  color:
+                                                                      AppColors
+                                                                          .dudu,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        CustomisedField(
+                                                          enabled: false,
+                                                          suffixIcon: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(15),
+                                                            child: ImageIcon(
+                                                              const AssetImage(
+                                                                  'assets/images/drop.png'),
+                                                              color: AppColors
+                                                                  .black,
+                                                            ),
+                                                          ),
+                                                          hintText: 'Location',
+                                                          textInputType:
+                                                              TextInputType
+                                                                  .text,
+                                                          textInputAction:
+                                                              TextInputAction
+                                                                  .next,
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 21),
+                                                        CustomisedButton(
+                                                            'Book Now',
+                                                            onPressed: () {
+                                                          Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder:
+                                                                  (context) {
+                                                                return const PaymentView();
+                                                              },
+                                                            ),
+                                                          );
+                                                        },
+                                                            buttonColor:
+                                                                AppColors.blue,
+                                                            textColor: AppColors
+                                                                .white),
+                                                      ],
                                                     );
                                                   },
                                                 );
@@ -1183,6 +1169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomisedButton('Schedule for later',
                         borderColor: AppColors.blue, onPressed: () {
                       showModalBottomSheet(
+                        isScrollControlled: true,
                         context: context,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
@@ -1190,13 +1177,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         builder: (BuildContext context) {
-                          return Container(
-                            height: 812,
-                            width: 375,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 18, top: 15.8, right: 18),
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                left: 18, top: 15.8, right: 18),
+                            child: Container(
+                              height: 696,
                               child: ListView(
+                                shrinkWrap: true,
                                 children: [
                                   Text(
                                     'Your driver is coming in 2:10',

@@ -96,14 +96,13 @@ class _CreateViewState extends State<CreateView> {
               const SizedBox(
                 height: 4,
               ),
-              CustomisedField(
+              const CustomisedField(
                 hintText: 'Enter your country',
                 suffixIcon: Padding(
-                  padding: const EdgeInsets.only(right: 16),
+                  padding: EdgeInsets.only(right: 16),
                   child: ImageIcon(
-                    const AssetImage('assets/images/drop.png'),
-                    color: AppColors.grey,
-                    size: 20,
+                    AssetImage('assets/images/drop.png'),
+                    size: 24,
                   ),
                 ),
                 textInputType: TextInputType.text,

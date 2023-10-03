@@ -15,6 +15,7 @@ class _DriverWalletViewState extends State<DriverWalletView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.white,
       appBar: AppBar(
         centerTitle: true,
@@ -40,7 +41,7 @@ class _DriverWalletViewState extends State<DriverWalletView> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
-      body: Column(
+      body: ListView(
         children: [
           Stack(
             children: [
@@ -282,7 +283,8 @@ class _DriverWalletViewState extends State<DriverWalletView> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             left: 23, right: 25.5, top: 24),
-                                        child: Column(
+                                        child: ListView(
+                                          shrinkWrap: true,
                                           children: [
                                             Row(
                                               children: [
@@ -642,7 +644,8 @@ class _DriverWalletViewState extends State<DriverWalletView> {
                                                   width: 360,
                                                   decoration: BoxDecoration(
                                                     border: Border.all(
-                                                        color: AppColors.lightgrey),
+                                                        color: AppColors
+                                                            .lightgrey),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             4),
