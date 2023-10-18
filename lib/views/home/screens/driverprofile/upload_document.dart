@@ -15,7 +15,8 @@ class UploadDocumentView extends StatefulWidget {
 }
 
 class _UploadDocumentViewState extends State<UploadDocumentView> {
-  File? image;
+  File? image1;
+  File? image2;
   String? imageUrl;
   @override
   Widget build(BuildContext context) {
@@ -118,7 +119,7 @@ class _UploadDocumentViewState extends State<UploadDocumentView> {
                                                       .pickFiles(
                                                           type: FileType.image);
                                               if (result != null) {
-                                                image = File(
+                                                image1 = File(
                                                     result.files.single.path!);
                                                 setState(() {});
                                               } else {}
@@ -151,7 +152,7 @@ class _UploadDocumentViewState extends State<UploadDocumentView> {
                                                       .pickFiles(
                                                           type: FileType.image);
                                               if (result != null) {
-                                                image = File(
+                                                image1 = File(
                                                     result.files.single.path!);
                                                 setState(() {});
                                               } else {}
@@ -186,7 +187,7 @@ class _UploadDocumentViewState extends State<UploadDocumentView> {
                                   },
                                 );
                               },
-                              child: image == null
+                              child: image1 == null
                                   ? Image.asset('assets/images/save2.png',
                                       height: 40, width: 40)
                                   : Icon(
@@ -271,7 +272,7 @@ class _UploadDocumentViewState extends State<UploadDocumentView> {
                                                       .pickFiles(
                                                           type: FileType.image);
                                               if (result != null) {
-                                                image = File(
+                                                image2 = File(
                                                     result.files.single.path!);
                                                 setState(() {});
                                               } else {}
@@ -298,24 +299,38 @@ class _UploadDocumentViewState extends State<UploadDocumentView> {
                                             ),
                                           ),
                                           const SizedBox(height: 24),
-                                          Row(
-                                            children: [
-                                              Image.asset(
-                                                  'assets/images/camera.png',
-                                                  width: 22.869,
-                                                  height: 18),
-                                              const SizedBox(width: 13),
-                                              Text(
-                                                'Choose from gallery',
-                                                style: GoogleFonts.poppins(
-                                                  textStyle: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors.black,
+                                          InkWell(
+                                            onTap: () async {
+                                              FilePickerResult? result =
+                                                  await FilePicker.platform
+                                                      .pickFiles(
+                                                          type: FileType.image);
+                                              if (result != null) {
+                                                image2 = File(
+                                                    result.files.single.path!);
+                                                setState(() {});
+                                              } else {}
+                                            },
+                                            child: Row(
+                                              children: [
+                                                Image.asset(
+                                                    'assets/images/camera.png',
+                                                    width: 22.869,
+                                                    height: 18),
+                                                const SizedBox(width: 13),
+                                                Text(
+                                                  'Choose from gallery',
+                                                  style: GoogleFonts.poppins(
+                                                    textStyle: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: AppColors.black,
+                                                    ),
                                                   ),
-                                                ),
-                                              )
-                                            ],
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -327,7 +342,7 @@ class _UploadDocumentViewState extends State<UploadDocumentView> {
                                   },
                                 );
                               },
-                              child: image == null
+                              child: image2 == null
                                   ? Image.asset('assets/images/save.png',
                                       height: 40, width: 40)
                                   : Icon(

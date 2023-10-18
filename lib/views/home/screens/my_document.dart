@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ridealong_project/views/home/screens/driverprofile/upload_document.dart';
@@ -16,7 +15,6 @@ class MyDocument extends StatefulWidget {
 class _MyDocumentState extends State<MyDocument> {
   File? image;
   String? imageUrl;
-  bool _imageUploaded = false;
   bool isButtonVisible = true;
   @override
   Widget build(BuildContext context) {
@@ -92,111 +90,8 @@ class _MyDocumentState extends State<MyDocument> {
                             ],
                           ),
                           const Spacer(),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  isButtonVisible = false;
-                                });
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: Column(
-                                        children: [
-                                          Text(
-                                            'Select upload option',
-                                            style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w500,
-                                                color: AppColors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          const SizedBox(height: 16),
-                                          InkWell(
-                                            onTap: () async {
-                                              FilePickerResult? result =
-                                                  await FilePicker.platform
-                                                      .pickFiles(
-                                                          type: FileType.image);
-                                              if (result != null) {
-                                                image = File(
-                                                    result.files.single.path!);
-                                                setState(() {});
-                                              } else {}
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Image.asset(
-                                                    'assets/images/camera.png',
-                                                    height: 18),
-                                                const SizedBox(width: 13),
-                                                Text(
-                                                  'Take a photo',
-                                                  style: GoogleFonts.poppins(
-                                                    textStyle: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: AppColors.black,
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(height: 24),
-                                          InkWell(
-                                            onTap: () async {
-                                              FilePickerResult? result =
-                                                  await FilePicker.platform
-                                                      .pickFiles(
-                                                          type: FileType.image);
-                                              if (result != null) {
-                                                image = File(
-                                                    result.files.single.path!);
-                                                setState(() {});
-                                              } else {}
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Image.asset(
-                                                    'assets/images/camera.png',
-                                                    height: 18),
-                                                const SizedBox(width: 13),
-                                                Text(
-                                                  'Choose from gallery',
-                                                  style: GoogleFonts.poppins(
-                                                    textStyle: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: AppColors.black,
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                              child: image == null
-                                  ? Image.asset('assets/images/save2.png',
-                                      height: 40, width: 40)
-                                  : Icon(
-                                      Icons.check,
-                                      size: 24,
-                                      color: AppColors.green,
-                                    )),
+                          Image.asset('assets/images/save2.png',
+                              height: 40, width: 40)
                         ],
                       ),
                     ),
@@ -247,99 +142,8 @@ class _MyDocumentState extends State<MyDocument> {
                             ],
                           ),
                           const Spacer(),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  isButtonVisible = false;
-                                });
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: Column(
-                                        children: [
-                                          Text(
-                                            'Select upload option',
-                                            style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w500,
-                                                color: AppColors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          const SizedBox(height: 16),
-                                          InkWell(
-                                            onTap: () async {
-                                              FilePickerResult? result =
-                                                  await FilePicker.platform
-                                                      .pickFiles(
-                                                          type: FileType.image);
-                                              if (result != null) {
-                                                image = File(
-                                                    result.files.single.path!);
-                                                setState(() {});
-                                              } else {}
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Image.asset(
-                                                    'assets/images/camera.png',
-                                                    width: 22.869,
-                                                    height: 18),
-                                                const SizedBox(width: 13),
-                                                Text(
-                                                  'Take a photo',
-                                                  style: GoogleFonts.poppins(
-                                                    textStyle: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: AppColors.black,
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(height: 24),
-                                          Row(
-                                            children: [
-                                              Image.asset(
-                                                  'assets/images/camera.png',
-                                                  width: 22.869,
-                                                  height: 18),
-                                              const SizedBox(width: 13),
-                                              Text(
-                                                'Choose from gallery',
-                                                style: GoogleFonts.poppins(
-                                                  textStyle: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors.black,
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                              child: image == null
-                                  ? Image.asset('assets/images/save.png',
-                                      height: 40, width: 40)
-                                  : Icon(
-                                      Icons.check,
-                                      size: 24,
-                                      color: AppColors.green,
-                                    )),
+                          Image.asset('assets/images/save.png',
+                              height: 40, width: 40)
                         ],
                       ),
                     ),

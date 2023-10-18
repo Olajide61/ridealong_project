@@ -124,14 +124,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text(
-                              'Edit profile',
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.darkblue,
+                            InkWell(
+                              onTap: () {},
+                              child: Text(
+                                'Edit profile',
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.darkblue,
+                                  ),
                                 ),
                               ),
                             )
@@ -453,7 +456,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: GoogleMap(
-              mapType: MapType.hybrid,
+              mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
@@ -528,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       shrinkWrap: true,
                                                       padding:
                                                           const EdgeInsets.all(
-                                                              24),
+                                                              18),
                                                       physics:
                                                           const ClampingScrollPhysics(),
                                                       children: [
@@ -589,7 +592,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   Image.asset(
                                                                 'assets/images/cancel2.png',
                                                                 height: 16,
-                                                                width: 16,
                                                               ),
                                                             )
                                                           ],
@@ -1484,7 +1486,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             Column(
                                                               children: [
                                                                 Text(
-                                                                  'Final cos',
+                                                                  'Final cost',
                                                                   style: GoogleFonts
                                                                       .poppins(
                                                                     textStyle:

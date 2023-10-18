@@ -52,7 +52,8 @@ class _DriverWalletViewState extends State<DriverWalletView> {
                 top: 20,
                 left: 20,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 23, top: 27, bottom: 19),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 23, vertical: 27),
                   child: Row(
                     children: [
                       Column(
@@ -68,15 +69,13 @@ class _DriverWalletViewState extends State<DriverWalletView> {
                               ),
                             ),
                           ),
-                          Align(
-                            child: Text(
-                              '₦200,000',
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 61,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.white,
-                                ),
+                          Text(
+                            '₦200,000',
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 61,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.white,
                               ),
                             ),
                           ),
@@ -639,52 +638,55 @@ class _DriverWalletViewState extends State<DriverWalletView> {
                                             const SizedBox(height: 16),
                                             Row(
                                               children: [
-                                                Container(
-                                                  height: 48,
-                                                  width: 360,
-                                                  decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color: AppColors
-                                                            .lightgrey),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
-                                                  ),
-                                                  child: Row(children: [
-                                                    const Spacer(),
-                                                    Container(
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8),
-                                                            color:
-                                                                AppColors.blue),
-                                                        height: 48,
-                                                        width: 97,
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(13),
-                                                          child: Text(
-                                                            'Pay max',
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: GoogleFonts
-                                                                .poppins(
-                                                              textStyle:
-                                                                  TextStyle(
-                                                                fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                color: AppColors
-                                                                    .white,
+                                                Expanded(
+                                                  child: Container(
+                                                    height: 48,
+                                                    width: 360,
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: AppColors
+                                                              .lightgrey),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4),
+                                                    ),
+                                                    child: Row(children: [
+                                                      const Spacer(),
+                                                      Container(
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8),
+                                                              color: AppColors
+                                                                  .blue),
+                                                          height: 48,
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(13),
+                                                            child: Text(
+                                                              'Pay max',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: GoogleFonts
+                                                                  .poppins(
+                                                                textStyle:
+                                                                    TextStyle(
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  color:
+                                                                      AppColors
+                                                                          .white,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ))
-                                                  ]),
+                                                          ))
+                                                    ]),
+                                                  ),
                                                 )
                                               ],
                                             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ridealong_project/views/home/screens/driverprofile/driver_home.dart';
 import 'package:ridealong_project/views/widgets/color.dart';
 import 'package:ridealong_project/views/widgets/customised_button.dart';
 import 'package:ridealong_project/views/widgets/customised_field.dart';
@@ -144,10 +145,11 @@ class _RouteViewState extends State<RouteView> {
               textInputAction: TextInputAction.next,
             ),
             const SizedBox(height: 152),
-            CustomisedButton('Submit',
-                onPressed: () {},
-                buttonColor: AppColors.blue,
-                textColor: AppColors.white),
+            CustomisedButton('Submit', onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const DriverHomeView();
+              }));
+            }, buttonColor: AppColors.blue, textColor: AppColors.white),
           ],
         ),
       ),

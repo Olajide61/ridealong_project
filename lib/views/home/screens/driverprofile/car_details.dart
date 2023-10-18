@@ -42,7 +42,7 @@ class _CarDeatilsViewState extends State<CarDeatilsView> {
         backgroundColor: AppColors.grey1,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 35, left: 18, right: 18),
+        padding: const EdgeInsets.only(top: 50, left: 18, right: 18),
         child: ListView(
           children: [
             Row(

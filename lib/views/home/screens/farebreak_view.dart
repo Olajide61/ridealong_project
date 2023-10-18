@@ -47,126 +47,129 @@ class _FareBreakViewState extends State<FareBreakView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 228,
-                  width: 344,
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          color: AppColors.ff1, spreadRadius: 5, blurRadius: 4),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/images/point.png',
-                                height: 20, width: 20),
-                            const SizedBox(width: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Benue State University',
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.dudu,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  'Makurdi, Gboko Road, Makurdi, Nigeria',
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.ash,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
+                Expanded(
+                  child: Container(
+                    height: 228,
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            color: AppColors.ff1,
+                            spreadRadius: 5,
+                            blurRadius: 4),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        children: [
+                          Row(
                             children: [
-                              Image.asset('assets/images/line.png',
-                                  width: 1, height: 24)
-                            ],
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Image.asset('assets/images/location.png',
-                                height: 20, width: 20),
-                            const SizedBox(width: 16),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Federal Polytechnic Lafia',
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.dudu,
+                              Image.asset('assets/images/point.png',
+                                  height: 20, width: 20),
+                              const SizedBox(width: 16),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Benue State University',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.dudu,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  'Lafia, Nasarawa State, Nigeria ',
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.ash,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 36),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4),
-                                    border: Border.all(
-                                        color: AppColors.lightgreen)),
-                                height: 29,
-                                width: 58,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 16, right: 14, top: 4),
-                                  child: Text(
-                                    'Edit',
-                                    textAlign: TextAlign.center,
+                                  Text(
+                                    'Makurdi, Gboko Road, Makurdi, Nigeria',
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
-                                        color: AppColors.lightgreen,
+                                        color: AppColors.ash,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Image.asset('assets/images/line.png',
+                                    width: 1, height: 24)
+                              ],
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Image.asset('assets/images/location.png',
+                                  height: 20, width: 20),
+                              const SizedBox(width: 16),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Federal Polytechnic Lafia',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.dudu,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Lafia, Nasarawa State, Nigeria ',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.ash,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 36),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(4),
+                                      border: Border.all(
+                                          color: AppColors.lightgreen)),
+                                  height: 29,
+                                  width: 58,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 14, top: 4),
+                                    child: Text(
+                                      'Edit',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.lightgreen,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -175,7 +178,6 @@ class _FareBreakViewState extends State<FareBreakView> {
             const SizedBox(height: 16),
             Container(
               height: 125,
-              width: 339,
               decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -288,144 +290,139 @@ class _FareBreakViewState extends State<FareBreakView> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 27, top: 8, right: 27),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Fare Details',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.black,
-                          ),
+            const SizedBox(height: 29),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Fare Details',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.black,
                         ),
                       ),
-                      const SizedBox(width: 160),
-                      Image.asset('assets/images/ic.png',
-                          height: 22, width: 22),
-                      const Spacer(),
-                      Text(
-                        '₦4,000',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.black,
-                          ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '₦4,000',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.black,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Row(
-                    children: [
-                      Text(
-                        'Trip fare',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 13),
+                Row(
+                  children: [
+                    Text(
+                      'Trip fare',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
                         ),
                       ),
-                      const Spacer(),
-                      Text(
-                        '₦4,500',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '₦4,500',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Row(
-                    children: [
-                      Text(
-                        'Platform fee',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 13),
+                Row(
+                  children: [
+                    Text(
+                      'Platform fee',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
                         ),
                       ),
-                      const Spacer(),
-                      Text(
-                        '₦0.70',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '₦0.70',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Row(
-                    children: [
-                      Text(
-                        'Platform discount',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 13),
+                Row(
+                  children: [
+                    Text(
+                      'Platform discount',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
                         ),
                       ),
-                      const Spacer(),
-                      Text(
-                        '-₦500',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '-₦500',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Row(
-                    children: [
-                      Text(
-                        'Total',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.black,
-                          ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 13),
+                Row(
+                  children: [
+                    Text(
+                      'Total',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.black,
                         ),
                       ),
-                      const Spacer(),
-                      Text(
-                        '₦4,000',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.black,
-                          ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '₦4,000',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.black,
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
             const SizedBox(height: 32),
             CustomisedButton('Order Now', onPressed: () {
